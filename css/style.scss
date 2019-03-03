@@ -1,0 +1,223 @@
+// Main style
+@import "variables";
+@import "menu";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $primary-color;
+  font-family: 'Lato', sans-serif;
+  color: set-text-color($primary-color);
+}
+
+header {
+  .top-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 50vh;
+    position: relative;
+
+    .header-content {
+      margin-left: 10rem;
+
+      .title {
+        font-weight: 300;
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+.sub-title {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: $secondary-color;
+}
+
+.grid-2 {
+  display: grid;
+  grid-gap: 1rem;
+  overflow: hidden;
+  position: relative;
+  grid-template-areas: 'content img';
+
+  &.grid-reserve {
+    grid-template-areas: 'img content';
+  }
+
+  .content {
+    grid-area: content;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .image {
+    grid-area: img;
+  }
+}
+
+.bg-invert {
+  background-color: set-text-color($primary-color);
+  color: $primary-color;
+}
+
+.container {
+  margin: 2rem auto;
+  width: 75%;
+}
+
+.bg-img {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+
+  .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba($primary-color,0.4);
+  }
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.secondary-color {
+  color: $secondary-color;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+footer {
+  padding: 2.2rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.grid-3-2 {
+  display: grid;
+  grid-gap: 0.5rem;
+  height: 60vh;
+  position: relative;
+  padding: 2rem 0;
+  grid-template-areas: 'c1 i2 c3' 'i1 i2 i3' 'i1 c2 i3';
+
+  .content-1 {
+    grid-area: c1;
+  }
+
+  .content-2 {
+    grid-area: c2;
+  }
+
+  .content-3 {
+    grid-area: c3;
+  }
+
+  .image-1 {
+    grid-area: i1;
+  }
+
+  .image-2 {
+    grid-area: i2;
+  }
+
+  .image-3 {
+    grid-area: i3;
+  }
+
+  .sa-image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url("http://lorempixel.com/1920/1080/people");
+  }
+
+  .sa-content {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+    padding: 1rem;
+
+    h3 {
+      padding-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+  }
+}
+@include mediaSm {
+  header {
+    .top-container {
+      .header-content {
+        margin-left: 1rem;
+
+        .title {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .sub-title {
+    margin-top: 0.2rem;
+    font-size: 1.2rem;
+  }
+}
+@include mediaMd {
+  .grid-2 {
+    grid-template-areas: 'content' 'img'!important;
+  }
+
+  .container {
+    margin: 0.5rem auto;
+    width: 90%;
+  }
+
+  .grid-3-2 {
+    height: unset;
+    grid-template-areas: 'c1' 'i1' 'c2' 'i2' 'c3' 'i3';
+    grid-auto-rows: minmax(200px, auto);
+  }
+
+  header {
+    .top-container {
+      .header-content {
+        margin-left: 2rem;
+
+        .title {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
